@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    .text-white{
+        color:rgb(255, 255, 255)
+    }
+</style>
+<body style="background-image: url('https://wallpaperaccess.com/full/3876048.jpg');">
+
+    <nav class="navbar">
+        <a class="navbar-brand" style="color: rgb(255,253,208);">Book recommender system</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/" style="color: rgb(255,253,208);">Home</a></li>
+            <li><a href="/recommend" style="color: rgb(255,253,208);">Recommender</a></li>
+            <li><a href="/search" style="color: rgb(255,253,208);">Search Books</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:50px ; color: rgb(255,253,208);">Book Names</h1>
+                <h5 style="color:rgb(255,253,208) ;">If no book appears after searching then the book is not available in the recommender</h5>
+                <form action="/search_books" method="post">
+                    <input name="user_search" type="text" class="form-control"><br>
+                    <input type="submit" class="btn btn-lg btn-warning">
+                </form>
+            </div>
+
+            {% if name_data %}
+
+             {% for i in name_data %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{i[2]}}">
+                            <p class="text-white">{{i[0]}}</p>
+                            <h4 class="text-white">{{i[1]}}</h4>
+                            <h4 class="text-white">Votes - {{i[3]}}</h4>
+                            <h4 class="text-white">Rating - {{i[4]}}</h4>
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
+        
+            {% endif %}
+            
+
+
+
+
+        </div>
+    </div>
+
+</body>
+</html>
