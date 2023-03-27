@@ -6,6 +6,7 @@ popular_df = pickle.load(open('popular.pkl','rb'))
 pt = pickle.load(open('pt.pkl','rb'))
 books = pickle.load(open('books.pkl','rb'))
 similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
+search = pickle.load(open('search.pkl','rb'))
 
 app = Flask(__name__)
 
@@ -27,7 +28,7 @@ def recommend_ui():
 def recommend():
     user_input = request.form.get('user_input')
     index = np.where(pt.index == user_input)[0][0]
-    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:5]
+    similar_items = sorted(list(enumerate(similarity_scores[index])), key=lambda x: x[1], reverse=True)[1:9]
 
     data = []
     for i in similar_items:
@@ -43,5 +44,18 @@ def recommend():
 
     return render_template('recommend.html',data=data)
 
+@app.route('/search')
+def search_ui():
+    return render_template('search.html')
+
+@app.route('/search_books',methods=['post'])
+def searching():
+    user_search = request.form.get('user_search')
+    user_search=str(user_search)
+    crt_names=search[search['Book-Title'].str.contains(pat=user_search,case=False)].head(8)
+    name_data=crt_names.values.tolist()
+    print(name_data)
+    return render_template('search.html',name_data=name_data)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
