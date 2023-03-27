@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <title>Book Recommender System</title>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <style>
     .text-white{
-        color:white
+        color:rgb(255, 255, 255)
     }
+   
 </style>
-<body style="background-color:black">
+<body background="https://wallpaperaccess.com/full/3876048.jpg">
+    
+    
 
-    <nav class="navbar" style="background-color:#00a65a">
-        <a class="navbar-brand">My Book recommender</a>
+    <nav class="navbar">
+        <a class="navbar-brand" style="color: rgb(255,253,208);">Book recommender system</a>
         <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/recommend">Recommend</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="/" style="color: rgb(255,253,208);">Home</a></li>
+            <li><a href="/recommend" style="color: rgb(255,253,208);">Recommender</a></li>
+            <li><a href="/search" style="color: rgb(255,253,208);">Search Books</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-white" style="font-size:50px">Top 50 Books</h1>
+                <h1 class="text-white" style="font-size:50px ; color:rgb(255,253,208) ;">Most popular books</h1>
             </div>
 
             {% for i in range(book_name|length) %}
@@ -45,6 +48,6 @@
 
         </div>
     </div>
-
+    
 </body>
 </html>

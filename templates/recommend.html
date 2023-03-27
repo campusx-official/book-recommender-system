@@ -8,24 +8,25 @@
 </head>
 <style>
     .text-white{
-        color:white
+        color:rgb(255, 255, 255)
     }
 </style>
-<body style="background-color:black">
+<body style="background-image: url('https://wallpaperaccess.com/full/3876048.jpg');">
 
-    <nav class="navbar" style="background-color:#00a65a">
-        <a class="navbar-brand">My Book recommender</a>
+    <nav class="navbar">
+        <a class="navbar-brand" style="color: rgb(255,253,208);">Book recommender system</a>
         <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/recommend">Recommend</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="/" style="color: rgb(255,253,208);">Home</a></li>
+            <li><a href="/recommend" style="color: rgb(255,253,208);">Recommender</a></li>
+            <li><a href="/search" style="color: rgb(255,253,208);">Search Books</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-white" style="font-size:50px">Recommend Books</h1>
+                <h1 class="text-white" style="font-size:50px ; color: rgb(255,253,208);">Book Suggestions</h1>
+                <h5 style="color: rgb(255,253,208);">If internal server error occurs go back to site and search for exact book name in SEARCH BOOKS option</h5>
                 <form action="/recommend_books" method="post">
                     <input name="user_input" type="text" class="form-control"><br>
                     <input type="submit" class="btn btn-lg btn-warning">
